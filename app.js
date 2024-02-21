@@ -32,13 +32,12 @@ async function sendFunds() {
       value: Number(amount).toString(16),
       gas: Number(21000).toString(16),
       gasPrice: Number(2500000).toString(16)
-    },
-  ];
+    }];
     //Make the transaction
-  const txHash = await ethereum.request({
-        method: "eth_sendTransaction",
-        params: params,
-      });
+    const txHash = await ethereum.request({
+          method: "eth_sendTransaction",
+          params: params,
+        });
       // Optionally, display the transaction hash
     console.log(`Transaction Hash: ${txHash}`);
 
@@ -62,6 +61,10 @@ async function sendFunds() {
   }
 }
 
+/* window.addEventListener('load', async () => {
+  await displayBlock();
+}); */
+
 async function displayBlock() {
   const blockHex = await ethereum.request({ method: "eth_blockNumber", params: [] });
   const blockNumber = parseInt(blockHex, 16);
@@ -70,3 +73,5 @@ async function displayBlock() {
 
 checkBalanceButton.addEventListener('click', checkBalance);
 sendButton.addEventListener('click', sendFunds);
+
+//Transaction Hash: 0xd8f8920edb35d6d801c18f8cb3c42fcb59eb00834be1a54bb39148f74c97671f
