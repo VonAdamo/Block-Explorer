@@ -4,6 +4,7 @@ const displayBalance = document.querySelector('#balance');
 const sendButton = document.querySelector('#sendTx');
 const toAccountInput = document.querySelector('#toAccountNumber');
 const valueInput = document.querySelector('#amount');
+const displayBlockNumber = document.querySelector("#blockNumber");
 
 let acccounts;
 
@@ -23,7 +24,7 @@ async function checkBalance() {
 
 async function sendFunds() {
   try {
-    const amount = parseFloat(valueInput.value) * Math.pow(10,18)
+    const amount = parseFloat(valueInput.value) * Math.pow(10,18) //översätter input till ett numeriskt värde från Hex
     let params = [{
       from: accountInput.value,
       to: toAccountInput.value,
@@ -33,14 +34,28 @@ async function sendFunds() {
     },
   ];
     //Make the transaction
-    const response = await ethereum.request({
-      method: "eth_sendTransaction",
-      params: params,
-    })
-  } catch (error) {
-    console.log(error);
-  }
+  await ethereum.request({
+        method: "eth_sendTransaction",
+        params: params,
+      });
+
+      // Display the latest block number after the transaction is sent
+    await displayBlock();
+
+    } catch (error) {
+      console.log(error);
+    }
 }
+
+/* window.addEventListener('load', async () => {
+  await displayBlock();
+}); */
+
+async function displayBlock() {
+  const blockHex = await ethereum.request({ method: "eth_blockNumber", params: [] });
+  const blockNumber = parseInt(blockHex, 16);
+  displayBlockNumber.innerText = blockNumber;
+};
 
 checkBalanceButton.addEventListener('click', checkBalance);
 sendButton.addEventListener('click', sendFunds);
