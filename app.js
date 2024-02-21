@@ -5,6 +5,7 @@ const sendButton = document.querySelector('#sendTx');
 const toAccountInput = document.querySelector('#toAccountNumber');
 const valueInput = document.querySelector('#amount');
 const displayBlockNumber = document.querySelector("#blockNumber");
+const displayTrx = document.querySelector("#trx");
 
 let acccounts;
 
@@ -34,22 +35,32 @@ async function sendFunds() {
     },
   ];
     //Make the transaction
-  await ethereum.request({
+  const txHash = await ethereum.request({
         method: "eth_sendTransaction",
         params: params,
       });
+      // Optionally, display the transaction hash
+    console.log(`Transaction Hash: ${txHash}`);
 
-      // Display the latest block number after the transaction is sent
+    // Display the latest block number after the transaction is sent
     await displayBlock();
 
-    } catch (error) {
-      console.log(error);
-    }
-}
+    // Display transaction parameters
+    displayTrx.innerText = `
+    Transaction Parameters:
+    \nFrom: ${params[0].from}
+    \nTo: ${params[0].to}
+    \nValue: ${valueInput.value} ETH
+    \nGas: ${21000}
+    \nGas Price: ${2500000} Wei
+    \nTransaction Hash: ${txHash}
+    `;
 
-/* window.addEventListener('load', async () => {
-  await displayBlock();
-}); */
+  } catch (error) {
+    console.log(error);
+    displayTrx.innerText = `Error sending transaction: ${error.message}`;
+  }
+}
 
 async function displayBlock() {
   const blockHex = await ethereum.request({ method: "eth_blockNumber", params: [] });
