@@ -61,17 +61,37 @@ async function sendFunds() {
   }
 }
 
-/* window.addEventListener('load', async () => {
-  await displayBlock();
-}); */
-
-async function displayBlock() {
+async function displayBlock() { //Display block number
   const blockHex = await ethereum.request({ method: "eth_blockNumber", params: [] });
-  const blockNumber = parseInt(blockHex, 16);
+  const blockNumber = parseInt(blockHex, 16); // Convert hex number
   displayBlockNumber.innerText = ("Most recent Block number: " + blockNumber);
 };
 
-checkBalanceButton.addEventListener('click', checkBalance);
-sendButton.addEventListener('click', sendFunds);
 
-//Transaction Hash: 0xd8f8920edb35d6d801c18f8cb3c42fcb59eb00834be1a54bb39148f74c97671f
+/* checkBalanceButton.addEventListener('click', function() {
+  // Show the balance div when the checkBalance button is clicked
+  displayBalance.style.display = 'block';
+});
+
+checkBalanceButton.addEventListener('click', checkBalance); */
+
+checkBalanceButton.addEventListener('click', function() {
+  // Show the balance div when the checkBalance button is clicked
+  displayBalance.style.display = 'block';
+  
+  // Call the checkBalance function
+  checkBalance();
+});
+
+sendButton.addEventListener('click', function() {
+  
+  sendFunds();
+  
+  displayBlockNumber.style.display = 'block';
+  displayTrx.style.display = 'block';
+  
+  // Call the checkBalance function
+  
+});
+
+/* sendButton.addEventListener('click', sendFunds); */

@@ -40,14 +40,16 @@ body {
   padding: 1rem 2rem;
 }
 
-.balance {
-  display: flex;
+#balance {
+  display: none;
   justify-content: center;
   margin-top: 1em;
+  padding: 0em 1em;
   width: 450px;
   background-color: #333;
   border-radius: 5px;
   border: 2px solid rgb(245, 132, 32);
+
 }
 
 .form-control {
@@ -74,10 +76,13 @@ input {
   color: #fff;
 }
 
+#blockNumber, #trx {
+  display: none;
+}
+
 #blockNumber {
-  display: flex;
-  justify-content: center;
   margin-top: 1em;
+  padding: 0em 1em;
   width: 450px;
   background-color: #333;
   border-radius: 5px;
@@ -85,7 +90,6 @@ input {
 }
 
 #trx {
-  display: flex;
   margin-top: 1em;
   padding: 0em 1em;
   width: 450px;
@@ -96,18 +100,18 @@ input {
   border: 2px solid rgb(245, 132, 32);
 }
 
-/* Style the scrollbar corner */
 ::-webkit-scrollbar {
-  background-color: transparent; /* Color of the scrollbar corner */
+  background-color: transparent;
 }
 
 
-button {
+.btn {
   margin-top: 1em;
   display: flex;
   justify-content: center;
   font-family: "Kode Mono";
-  border: 0;
+  border-style: ridge;
+  border-color: rgba(245, 132, 32, 1);
   background: #333;
   color: #f4f4f4;
   min-width: 150px;
