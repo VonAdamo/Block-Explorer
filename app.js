@@ -38,7 +38,7 @@ async function sendFunds() {
           method: "eth_sendTransaction",
           params: params,
         });
-      // Optionally, display the transaction hash
+
     console.log(`Transaction Hash: ${txHash}`);
 
     // Display the latest block number after the transaction is sent
@@ -67,17 +67,9 @@ async function displayBlock() { //Display block number
   displayBlockNumber.innerText = ("Most recent Block number: " + blockNumber);
 };
 
-
-/* checkBalanceButton.addEventListener('click', function() {
-  // Show the balance div when the checkBalance button is clicked
-  displayBalance.style.display = 'block';
-});
-
-checkBalanceButton.addEventListener('click', checkBalance); */
-
 checkBalanceButton.addEventListener('click', function() {
   // Show the balance div when the checkBalance button is clicked
-  displayBalance.style.display = 'block';
+  displayBalance.classList.toggle('show');
   
   // Call the checkBalance function
   checkBalance();
@@ -86,12 +78,9 @@ checkBalanceButton.addEventListener('click', function() {
 sendButton.addEventListener('click', function() {
   
   sendFunds();
-  
-  displayBlockNumber.style.display = 'block';
-  displayTrx.style.display = 'block';
-  
-  // Call the checkBalance function
+  // show blockNumber and Trx div when SendButton is clicked
+  displayBlockNumber.classList.toggle('show');
+  displayTrx.classList.toggle('show');
   
 });
 
-/* sendButton.addEventListener('click', sendFunds); */
