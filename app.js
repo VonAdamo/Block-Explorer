@@ -17,7 +17,7 @@ async function checkBalance() {
     const balance = await ethereum.request({method: "eth_getBalance", params: [accountInput.value, "latest"] })
     // Convert to number
     const parsedBalanced = parseInt(balance) / Math.pow(10, 18);
-    displayBalance.innerText = parsedBalanced + " Ether";
+    displayBalance.innerText = parsedBalanced + " ETH";
   } else {
     console.log('No ethereum');
   }
@@ -61,9 +61,9 @@ async function sendFunds() {
   }
 }
 
-window.addEventListener('load', async () => {
+/* window.addEventListener('load', async () => {
   await displayBlock();
-});
+}); */
 
 async function displayBlock() {
   const blockHex = await ethereum.request({ method: "eth_blockNumber", params: [] });
