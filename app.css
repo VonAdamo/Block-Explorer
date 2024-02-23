@@ -9,11 +9,10 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Kode Mono";
+  color: #fff;
   font-size: 1rem;
 }
-
-
 
 .top-bar {
   display: flex;
@@ -41,16 +40,17 @@ body {
   padding: 1rem 2rem;
 }
 
-.transactions-container > div {
+.balance {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  margin-top: 1em;
+  width: 450px;
+  background-color: #333;
+  border-radius: 5px;
+  border: 2px solid rgb(245, 132, 32);
 }
 
-.transactions-container span {
-  color: #4646f8;
-}
 .form-control {
-  position: relative;
   margin-bottom: 1rem;
 }
 
@@ -61,17 +61,45 @@ input {
   outline: none;
   background: #333;
   border-radius: 5px;
-  color: rgb(245, 132, 32);;
+  color: #fff;
   border: 2px solid rgb(245, 132, 32);
   font-size: 1em;
-  transition: 0.4s cubic-bezier(0.05, 0.81, 0, 0.93);
+  width: 450px;
+  }
+#amount {
+  margin-top: 1em;
 }
 
 ::placeholder {
-  color: rgb(245, 132, 32);;
+  color: #fff;
 }
 
-.btn {
+#blockNumber {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+  width: 450px;
+  background-color: #333;
+  border-radius: 5px;
+  border: 2px solid rgb(245, 132, 32);
+}
+
+#trx {
+  display: flex;
+  margin-top: 1em;
+  padding: 1em;
+  width: 450px;
+  background-color: #333;
+  border-radius: 5px;
+  border: 2px solid rgb(245, 132, 32);
+  overflow: auto;
+  font-size: 1em;
+}
+
+button {
+  margin-top: 1em;
+  display: flex;
+  justify-content: center;
   font-family: "Kode Mono";
   border: 0;
   background: #333;
@@ -89,3 +117,5 @@ input {
 .btn-primary {
   background: radial-gradient(circle, rgba(245, 132, 32, 1) 0%, rgba(119, 62, 26, 1) 100%);
 }
+
+

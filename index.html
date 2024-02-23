@@ -19,7 +19,7 @@
   <body>
     <header class="top-bar">
       <h1>Block Meta</h1>
-      <img src="" alt="">
+      <img src="./assets/MetaMask_Fox.svg.png" alt="MetaMask Logo, a fox face" width="100px">
     </header>
     <main>
       <div class="container">
@@ -30,15 +30,11 @@
               name="accountNumber"
               id="accountNumber"
               placeholder="Ange konto" />
-              <span></span>
             <button
               id="checkBalance"
               class="btn btn-primary">
               Kolla kontobalans
             </button>
-            <div>
-              <span>Eth Balance</span>
-            </div>
             <div
               id="balance"
               class="balance"></div>
@@ -64,14 +60,14 @@
               Överför
             </button>
           </div>
-          <div>
-              <span>Block number:</span>
+          <div class="blockNumber">
+              <div id="blockNumber"></div>
+          </div>
+          
+          <div >
+              <div id="trx" class="trx"></div>
             </div>
-          <div id="blockNumber"></div>
-          <div>
-              <span>Transaction:</span>
-            </div>
-          <div id="trx"></div>
+          
         </section>
       </div>
     </main>

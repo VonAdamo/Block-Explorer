@@ -17,7 +17,7 @@ async function checkBalance() {
     const balance = await ethereum.request({method: "eth_getBalance", params: [accountInput.value, "latest"] })
     // Convert to number
     const parsedBalanced = parseInt(balance) / Math.pow(10, 18);
-    displayBalance.innerText = parsedBalanced;
+    displayBalance.innerText = parsedBalanced + " Ether";
   } else {
     console.log('No ethereum');
   }
@@ -47,12 +47,12 @@ async function sendFunds() {
     // Display transaction parameters
     displayTrx.innerText = `
     Transaction Parameters:
-    \nFrom: ${params[0].from}
-    \nTo: ${params[0].to}
-    \nValue: ${valueInput.value} ETH
-    \nGas: ${21000}
-    \nGas Price: ${2500000} Wei
-    \nTransaction Hash: ${txHash}
+    \nFrom:\n ${params[0].from}
+    \nTo:\n ${params[0].to}
+    \nValue:\n ${valueInput.value} ETH
+    \nGas:\n ${21000}
+    \nGas Price:\n ${2500000} Wei
+    \nTransaction Hash:\n ${txHash}
     `;
 
   } catch (error) {
@@ -61,14 +61,14 @@ async function sendFunds() {
   }
 }
 
-/* window.addEventListener('load', async () => {
+window.addEventListener('load', async () => {
   await displayBlock();
-}); */
+});
 
 async function displayBlock() {
   const blockHex = await ethereum.request({ method: "eth_blockNumber", params: [] });
   const blockNumber = parseInt(blockHex, 16);
-  displayBlockNumber.innerText = blockNumber;
+  displayBlockNumber.innerText = ("Most recent Block number: " + blockNumber);
 };
 
 checkBalanceButton.addEventListener('click', checkBalance);
