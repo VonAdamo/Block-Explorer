@@ -13,26 +13,23 @@ body {
   font-size: 1rem;
 }
 
-input {
-  padding: 0.5rem 0.4rem;
-  border: solid 1px #b2b2b2;
-  outline: none !important;
-}
 
-/* .top-bar {
+
+.top-bar {
   display: flex;
   align-items: center;
-  height: 75px;
+  justify-content: center;
+  height: 100px;
   width: 100%;
-  background: rgb(245, 132, 32);
-  background: linear-gradient(90deg, rgba(245, 132, 32) 50%, rgba(119, 62, 26, 1) 100%);
   margin-bottom: 1rem;
   padding: 0 1rem;
-  box-shadow: 1px 0px 16px 2px rgba(0, 0, 0, 0.8);
-} */
+}
 
 .top-bar h1 {
-  color: #f4f4f4;
+  color: rgb(245, 132, 32);
+  font-family: "Kode Mono";
+  font-size: 50px;
+  font-weight: 700;
 }
 
 .container {
@@ -41,7 +38,6 @@ input {
   justify-content: center;
   margin: auto;
   max-width: 1200px;
-  max-height: 1200px;
   padding: 1rem 2rem;
 }
 
@@ -58,39 +54,30 @@ input {
   margin-bottom: 1rem;
 }
 
-.form-control input {
+input {
+  font-family: "Kode Mono";
   padding: 15px 20px;
+  outline-color: rgb(245, 132, 32);
   outline: none;
-  background: transparent;
+  background: #333;
   border-radius: 5px;
-  color: #fff;
-  border: 1 px solid#ee8465;
+  color: rgb(245, 132, 32);;
+  border: 2px solid rgb(245, 132, 32);
   font-size: 1em;
   transition: 0.4s cubic-bezier(0.05, 0.81, 0, 0.93);
 }
 
-.form-control input:focus ~ 
-span,
-.form-control input:valid ~
-span {
-  font-size: 0.7em;
-  transform: translateX(14px) translateY(-7.5px);
-  padding: 0 5px;
-  border-radius: 2px;
-  background: #212121;
-  letter-spacing: 0em;
-  border: 1px solid #ee8465
+::placeholder {
+  color: rgb(245, 132, 32);;
 }
 
 .btn {
+  font-family: "Kode Mono";
   border: 0;
   background: #333;
   color: #f4f4f4;
   min-width: 150px;
   font-size: 1rem;
-  line-height: 1.1;
-  white-space: nowrap;
-  text-decoration: none;
   padding: 0.5rem 0.5rem;
   cursor: pointer;
 }
