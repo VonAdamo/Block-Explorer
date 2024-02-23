@@ -1,3 +1,5 @@
+import isValidWalletAddress from "./functions/checkWallet.js";
+
 const accountInput = document.querySelector('#accountNumber');
 const checkBalanceButton = document.querySelector('#checkBalance');
 const displayBalance = document.querySelector('#balance');
@@ -11,6 +13,12 @@ let acccounts;
 
 async function checkBalance() {
   if (typeof ethereum !== undefined) {
+
+    if (!isValidWalletAddress(accountInput.value)) {
+      console.log('Invalid wallet address');
+      return;
+    }
+
     acccounts = await ethereum.request({ method: 'eth_requestAccounts' });
 
     //Get the balance
@@ -25,6 +33,12 @@ async function checkBalance() {
 
 async function sendFunds() {
   try {
+    
+    if (!isValidWalletAddress(toAccountInput.value)) {
+      console.log('Invalid recipient wallet address');
+      return;
+    }
+    
     const amount = parseFloat(valueInput.value) * Math.pow(10,18) //översätter input till ett numeriskt värde från Hex
     let params = [{
       from: accountInput.value,
